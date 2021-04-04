@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import Table from './Table';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component
+{
+	state = {
+		employees: [
+			{
+				name: "Tushar",
+				role: "CEO",
+			},
+			{
+				name: "Rahul",
+				role: "CTO",
+			},
+			{
+				name: "Piyush",
+				role: "CFO",
+			},
+			{
+				name: "Tania",
+				role: "HR",
+			},
+		],
+	};
+
+	removeEmp = (index) => {
+		const { employees } = this.state;
+		const updatedEmp = employees.filter( (emp,i) => {
+			return i !== index;
+		});
+
+		this.setState( {employees: updatedEmp} );
+	}
+
+	render()
+	{
+		return (
+			<div className="container">
+				<Table empData={this.state.employees} removeEmp={this.removeEmp}/>
+			</div>
+			);
+	}
 }
 
 export default App;
