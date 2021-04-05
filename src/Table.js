@@ -19,8 +19,9 @@ const TableBody = (props) => {
 					<td>{item.role}</td>
 					<td>
 						<button onClick={() => props.removeEmp(index)}>Delete</button>
-					{/*The onClick function must pass through a function that returns the removeCharacter() method,
-					 otherwise it will try to run automatically*/}
+					{/*as we need to pass index here,
+					 so the onClick function must pass through a function that returns the removeEmp() method,
+					 otherwise it will try to run automatically. ???????????*/}
 					</td>
 				</tr>
 			);

@@ -1,27 +1,11 @@
 import React, { Component } from 'react';
 import Table from './Table';
+import Form from './Form';
 
 class App extends Component
 {
-	state = {
-		employees: [
-			{
-				name: "Tushar",
-				role: "CEO",
-			},
-			{
-				name: "Rahul",
-				role: "CTO",
-			},
-			{
-				name: "Piyush",
-				role: "CFO",
-			},
-			{
-				name: "Tania",
-				role: "HR",
-			},
-		],
+	state = {//why not this.state?
+		employees: [],
 	};
 
 	removeEmp = (index) => {
@@ -33,10 +17,15 @@ class App extends Component
 		this.setState( {employees: updatedEmp} );
 	}
 
+	addEmp = (emp) => {
+		this.setState( { employees: [...this.state.employees, emp] } );
+	}
+
 	render()
 	{
 		return (
 			<div className="container">
+				<Form addEmp={this.addEmp}/>
 				<Table empData={this.state.employees} removeEmp={this.removeEmp}/>
 			</div>
 			);
