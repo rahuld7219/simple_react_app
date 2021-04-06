@@ -25,6 +25,8 @@ class App extends Component
 	{
 		return (
 			<div className="container">
+				<h1>Simple React App</h1>
+                <p>Add a new entry with a name and a job to the table.</p>
 				<Form addEmp={this.addEmp}/>
 				<Table empData={this.state.employees} removeEmp={this.removeEmp}/>
 			</div>
